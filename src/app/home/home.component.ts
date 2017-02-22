@@ -19,23 +19,26 @@ export class HomeComponent implements OnInit {
       console.log(data);
       this.students = data;
     });
-
-    _dataSvc.getAssignmentHistory(1).subscribe(data => {
-      this.assignmentHistory = data;
-      console.log('Assignment History: ');
-      console.log(this.assignmentHistory);
-    });
-
-    _dataSvc.getEnrollmentHistory(1).subscribe(data => {
-      this.enrollmentHistory = data;
-      console.log('Enrollment History:');
-      console.log(this.enrollmentHistory);
-    });
   }
 
-
   handleSelectStudent(student): void {
-     this.selectedStudent = student;
+    this.selectedStudent = student;
+    this.updateStudentDetails();
+  }
+
+  updateStudentDetails(): void {
+    if (this.selectedStudent && this.selectedStudent.studentId) {
+      this._dataSvc.getAssignmentHistory(this.selectedStudent.studentId)
+        .subscribe(data => {
+          this.assignmentHistory = data;
+        });
+
+      this._dataSvc.getEnrollmentHistory(this.selectedStudent.studentId)
+        .subscribe(data => {
+          this.enrollmentHistory = data;
+        });
+
+    }
   }
 
   ngOnInit() {
