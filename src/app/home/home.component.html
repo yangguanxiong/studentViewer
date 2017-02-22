@@ -18,24 +18,24 @@
   </table>
 </div>
  
-<div>
+<div *ngIf="selectedStudent" >
   <table>
-    <caption>EnrollmentHistory</caption>
+    <caption>Enrollment History of {{selectedStudent.firstName}}</caption>
     <tr>
       <th>Entry Date</th>
       <th>Exit Date</th>
       <th>Exit Reason</th>
     </tr>
     <tr *ngFor="let eh of enrollmentHistory">
-      <td>{{eh.entryDate}}</td>
-      <td>{{eh.exitDate}}</td>
+      <td>{{eh.entryDate | date: 'medium'}}</td>
+      <td>{{eh.exitDate  | date: 'medium'}}</td>
       <td>{{eh.exitReason}}</td>
     </tr>
   </table>
  
 
   <table>
-    <caption>AssignmentHistory</caption>
+    <caption>Assignment History of {{selectedStudent.firstName}}</caption>
     <tr>
       <th>Assignment Name</th>
       <th>Due Date</th>
@@ -45,9 +45,9 @@
     </tr>
     <tr *ngFor="let ah of assignmentHistory">
       <td>{{ah.assignmentName}}</td>
-      <td>{{ah.dueDate}}</td>
+      <td>{{ah.dueDate  | date: 'medium'}}</td>
       <td>{{ah.maxScore}}</td>
-      <td>{{ah.completionDate}}</td>
+      <td>{{ah.completionDate  | date: 'medium'}}</td>
       <td>{{ah.scoreEarned}}</td>
     </tr>
   </table>
