@@ -10,23 +10,17 @@ export class DataService {
 
   constructor(private _http: Http) { }
 
-  getStudents() {
+  getStudents(): Observable<IStudent> {
     let authHeader: Headers = new Headers();
-    // authHeader.append('Ocp-Apim-Subscription-Key', this.key);
-
-    // authHeader.append('Authorization', 'Basic ' +       btoa('username:password')); 
-
+    // authHeader.append('Ocp-Apim-Subscription-Key', this.key); 
     authHeader.append('Authorization', 'Basic ' + btoa('authentica:@uth3nt1c@'));
 
     let url: string = 'http://interviewapi20170221095727.azurewebsites.net/api/Student/All';
-    let observable = this._http.get(url, { headers: authHeader });
-    
-    observable.map((response: Response) => {
-      response.json();
-    }).share()
+    return this._http.get(url, { headers: authHeader })
+      .map((response: Response) => {
+        return response.json();
+      })
       .catch(this.handleError); 
-    return observable;
-
   }
 
   private handleError(error: Response) {

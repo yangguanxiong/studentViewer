@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   private students: IStudent[];
   constructor(private _dataSvc: DataService) {
     _dataSvc.getStudents().subscribe(data =>{
-      console.log(data.json() );
+      console.log(data  );
     });
    }
 
