@@ -13,9 +13,9 @@ interface IEnrollmentHistory {
 }
 
 interface IAssignmentHistory {
-    assignmentName: "string";
-    dueDate: "2017-02-22T15:54:20.604Z";
-    maxScore: 0;
-    completionDate: "2017-02-22T15:54:20.604Z";
-    scoreEarned: 0;
+    assignmentName: string;
+    dueDate: string;
+    maxScore: number;
+    completionDate: string;
+    scoreEarned: number;
 }

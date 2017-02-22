@@ -1,18 +1,54 @@
-<table>
-  <caption>Students</caption>
-  <tr>
-    <th>Student Id</th>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Grade</th>
-    <th>SchoolName</th>
-  </tr>
-  <tr *ngFor="let student of students"
-    (click) = 'handleSelectStudent(student )'>
-    <td>{{student.studentId}}</td>
-    <td>{{student.firstName}}</td>
-    <td>{{student.lastName}}</td>
-    <td>{{student.grade}}</td>
-    <td>{{student.schoolName}}</td>    
-  </tr>   
-</table>
+<div>
+  <table>
+    <caption>Students</caption>
+    <tr>
+      <th>Student Id</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Grade</th>
+      <th>SchoolName</th>
+    </tr>
+    <tr *ngFor="let student of students" (click)='handleSelectStudent(student )'>
+      <td>{{student.studentId}}</td>
+      <td>{{student.firstName}}</td>
+      <td>{{student.lastName}}</td>
+      <td>{{student.grade}}</td>
+      <td>{{student.schoolName}}</td>
+    </tr>
+  </table>
+</div>
+
+<div>
+  <table>
+    <caption>EnrollmentHistory</caption>
+    <tr>
+      <th>Entry Date</th>
+      <th>Exit Date</th>
+      <th>Exit Reason</th>
+    </tr>
+    <tr *ngFor="let eh of enrollmentHistory">
+      <td>{{eh.entryDate}}</td>
+      <td>{{eh.exitDate}}</td>
+      <td>{{eh.exitReason}}</td>
+    </tr>
+  </table>
+
+
+  <table>
+    <caption>AssignmentHistory</caption>
+    <tr>
+      <th>Assignment Name</th>
+      <th>Due Date</th>
+      <th>Max Score</th>
+      <th>Completion Date</th>
+      <th>Score Earned</th>
+    </tr>
+    <tr *ngFor="let ah of assignmentHistory">
+      <td>{{ah.assignmentName}}</td>
+      <td>{{ah.dueDate}}</td>
+      <td>{{ah.maxScore}}</td>
+      <td>{{ah.completionDate}}</td>
+      <td>{{ah.scoreEarned}}</td>
+    </tr>
+  </table>
+</div>
