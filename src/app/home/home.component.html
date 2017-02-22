@@ -1,6 +1,7 @@
 <div>
   <table>
-    <caption>Students</caption>
+    <caption>Students List</caption>
+    <p>*Please select a student to view details</p>
     <tr>
       <th>Student Id</th>
       <th>First Name</th>
@@ -8,7 +9,9 @@
       <th>Grade</th>
       <th>SchoolName</th>
     </tr>
-    <tr *ngFor="let student of students" (click)='handleSelectStudent(student )'>
+    <tr *ngFor="let student of students" 
+    (click)='handleSelectStudent(student)'
+    [ngClass]="{'student-selected': selectedStudent === student}">
       <td>{{student.studentId}}</td>
       <td>{{student.firstName}}</td>
       <td>{{student.lastName}}</td>
@@ -17,8 +20,8 @@
     </tr>
   </table>
 </div>
- 
-<div *ngIf="selectedStudent" >
+
+<div *ngIf="selectedStudent">
   <table>
     <caption>Enrollment History of {{selectedStudent.firstName}}</caption>
     <tr>
@@ -28,11 +31,11 @@
     </tr>
     <tr *ngFor="let eh of enrollmentHistory">
       <td>{{eh.entryDate | date: 'medium'}}</td>
-      <td>{{eh.exitDate  | date: 'medium'}}</td>
+      <td>{{eh.exitDate | date: 'medium'}}</td>
       <td>{{eh.exitReason}}</td>
     </tr>
   </table>
- 
+
 
   <table>
     <caption>Assignment History of {{selectedStudent.firstName}}</caption>
@@ -45,9 +48,9 @@
     </tr>
     <tr *ngFor="let ah of assignmentHistory">
       <td>{{ah.assignmentName}}</td>
-      <td>{{ah.dueDate  | date: 'medium'}}</td>
+      <td>{{ah.dueDate | date: 'medium'}}</td>
       <td>{{ah.maxScore}}</td>
-      <td>{{ah.completionDate  | date: 'medium'}}</td>
+      <td>{{ah.completionDate | date: 'medium'}}</td>
       <td>{{ah.scoreEarned}}</td>
     </tr>
   </table>
