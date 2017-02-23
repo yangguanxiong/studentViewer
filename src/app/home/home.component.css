@@ -13,16 +13,22 @@ td, th {
 
 p{
     font-size: small;
+ } 
+
+.student-selected{
+     background-color: lightsalmon;
  }
 
-caption{
-    font-size: x-large;
-    font-weight: bold;
-    margin: 10px;
+
+.card{
+    margin: 20px;
 }
 
- .student-selected{
-     background-color: lightblue;
- }
+.md-card{
+    background-color: lightgoldenrodyellow;
+}
+
+
+ 
 
  

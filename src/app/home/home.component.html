@@ -1,57 +1,67 @@
-<div>
-  <table>
-    <caption>Students List</caption>
-    <p>*Please select a student to view details</p>
-    <tr>
-      <th>Student Id</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Grade</th>
-      <th>SchoolName</th>
-    </tr>
-    <tr *ngFor="let student of students" 
-    (click)='handleSelectStudent(student)'
-    [ngClass]="{'student-selected': selectedStudent === student}">
-      <td>{{student.studentId}}</td>
-      <td>{{student.firstName}}</td>
-      <td>{{student.lastName}}</td>
-      <td>{{student.grade}}</td>
-      <td>{{student.schoolName}}</td>
-    </tr>
-  </table>
+<div class="card">
+  <md-toolbar color="primary">
+    Student
+  </md-toolbar>
+  <md-card>
+    <table>
+      <p>*Please select a student to view details</p>
+      <tr>
+        <th>Student Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Grade</th>
+        <th>SchoolName</th>
+      </tr>
+      <tr *ngFor="let student of students" (click)='handleSelectStudent(student)' [ngClass]="{'student-selected': selectedStudent === student}">
+        <td>{{student.studentId}}</td>
+        <td>{{student.firstName}}</td>
+        <td>{{student.lastName}}</td>
+        <td>{{student.grade}}</td>
+        <td>{{student.schoolName}}</td>
+      </tr>
+    </table>
+  </md-card>
 </div>
 
-<div *ngIf="selectedStudent">
-  <table>
-    <caption>Enrollment History of {{selectedStudent.firstName}}</caption>
-    <tr>
-      <th>Entry Date</th>
-      <th>Exit Date</th>
-      <th>Exit Reason</th>
-    </tr>
-    <tr *ngFor="let eh of enrollmentHistory">
-      <td>{{eh.entryDate | date: 'medium'}}</td>
-      <td>{{eh.exitDate | date: 'medium'}}</td>
-      <td>{{eh.exitReason}}</td>
-    </tr>
-  </table>
+<div class="card" *ngIf="selectedStudent" >
+  <md-toolbar color="primary">
+     Details of {{selectedStudent.firstName}}
+  </md-toolbar>
+  <md-card>
+    <md-tab-group>
+      <md-tab label="Enrollment History">
+        <table >
+           <tr>
+            <th>Entry Date</th>
+            <th>Exit Date</th>
+            <th>Exit Reason</th>
+          </tr>
+          <tr *ngFor="let eh of enrollmentHistory">
+            <td>{{eh.entryDate | date: 'medium'}}</td>
+            <td>{{eh.exitDate | date: 'medium'}}</td>
+            <td>{{eh.exitReason}}</td>
+          </tr>
+        </table> 
+      </md-tab>
 
-
-  <table>
-    <caption>Assignment History of {{selectedStudent.firstName}}</caption>
-    <tr>
-      <th>Assignment Name</th>
-      <th>Due Date</th>
-      <th>Max Score</th>
-      <th>Completion Date</th>
-      <th>Score Earned</th>
-    </tr>
-    <tr *ngFor="let ah of assignmentHistory">
-      <td>{{ah.assignmentName}}</td>
-      <td>{{ah.dueDate | date: 'medium'}}</td>
-      <td>{{ah.maxScore}}</td>
-      <td>{{ah.completionDate | date: 'medium'}}</td>
-      <td>{{ah.scoreEarned}}</td>
-    </tr>
-  </table>
+      <md-tab label="Assignment History">
+        <table>
+           <tr>
+            <th>Assignment Name</th>
+            <th>Due Date</th>
+            <th>Max Score</th>
+            <th>Completion Date</th>
+            <th>Score Earned</th>
+          </tr>
+          <tr *ngFor="let ah of assignmentHistory">
+            <td>{{ah.assignmentName}}</td>
+            <td>{{ah.dueDate | date: 'medium'}}</td>
+            <td>{{ah.maxScore}}</td>
+            <td>{{ah.completionDate | date: 'medium'}}</td>
+            <td>{{ah.scoreEarned}}</td>
+          </tr>
+        </table>
+      </md-tab> 
+    </md-tab-group>
+  </md-card>
 </div>
