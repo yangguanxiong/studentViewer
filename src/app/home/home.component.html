@@ -1,5 +1,5 @@
 <div class="card">
-  <md-toolbar color="primary">
+  <md-toolbar class="bg-success">
     Student
   </md-toolbar>
   <md-card>
@@ -23,15 +23,15 @@
   </md-card>
 </div>
 
-<div class="card" *ngIf="selectedStudent" >
-  <md-toolbar color="primary">
-     Details of {{selectedStudent.firstName}}
+<div class="card" *ngIf="selectedStudent">
+  <md-toolbar class="bg-success">
+    Details of {{selectedStudent.firstName}}
   </md-toolbar>
   <md-card>
     <md-tab-group>
       <md-tab label="Enrollment History">
-        <table >
-           <tr>
+        <table>
+          <tr>
             <th>Entry Date</th>
             <th>Exit Date</th>
             <th>Exit Reason</th>
@@ -41,12 +41,12 @@
             <td>{{eh.exitDate | date: 'medium'}}</td>
             <td>{{eh.exitReason}}</td>
           </tr>
-        </table> 
+        </table>
       </md-tab>
 
       <md-tab label="Assignment History">
         <table>
-           <tr>
+          <tr>
             <th>Assignment Name</th>
             <th>Due Date</th>
             <th>Max Score</th>
@@ -61,7 +61,7 @@
             <td>{{ah.scoreEarned}}</td>
           </tr>
         </table>
-      </md-tab> 
+      </md-tab>
     </md-tab-group>
   </md-card>
 </div>

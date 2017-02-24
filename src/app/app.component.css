@@ -2,3 +2,26 @@
     margin-left: 15%;
     margin-right: 15%;
  }
+
+.app-nav{
+    font-size: x-large;
+    font-weight: 500;
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    color: #fff;  
+    height: 64px;    
+ }
+
+.navbar::after {
+      content: none;
+}
+.navbar {
+  padding: 1rem 1rem 0.125rem 1rem
+}
+
+footer{
+    text-align: center;  
+    bottom: 0; 
+    position: relative ;
+    width: 100%; 
+ }
+ 

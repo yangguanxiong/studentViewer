@@ -16,18 +16,25 @@ p{
  } 
 
 .student-selected{
-     background-color: lightsalmon;
+     background-color: lightgreen;
  }
-
 
 .card{
     margin: 20px;
+    border: none;
 }
 
-.md-card{
-    background-color: lightgoldenrodyellow;
+md-card{
+   border-radius: 5px;
 }
 
+ md-toolbar{
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 1px rgba(255, 255, 255, 0.1);
+  color: white;
+}
+  
+ 
 
  
 
